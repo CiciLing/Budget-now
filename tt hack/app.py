@@ -49,17 +49,6 @@ def line():
     line_values=values
     return render_template('tt_hack/line.html', title='Your spending tracker', max=17000, labels=line_labels, values=line_values)
 
-@app.route('/line')
-def homepage(request):
-
-    NewChart = MyBarGraph()
-    NewChart.data.label = "My Favourite Numbers"      # can change data after creation
-
-    ChartJSON = NewChart.get()
-
-    return render_template(request=request,
-                  template_name='main/line_try.html',
-                  context={"chartJSON": ChartJSON})
 
 if __name__ == "__main__":
     app.run(host="localhost", port=8000, debug=True)
